@@ -17,6 +17,7 @@ type ThemeSwitcherProps = Readonly<{
  */
 export function ThemeSwitcher({ position = 'right' }: ThemeSwitcherProps) {
   const [isLight, setIsLight] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   // Sync with document class
   useEffect(() => {
@@ -27,37 +28,38 @@ export function ThemeSwitcher({ position = 'right' }: ThemeSwitcherProps) {
     }
   }, [isLight]);
 
+  // Handle entrance delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   // Map position prop to Tailwind classes
   const positionClasses = {
-    left: 'start-xl',
+    left: 'start-4',
     center: 'inset-x-0 mx-auto w-fit',
-    right: 'end-xl',
+    right: 'end-4',
   };
+
+  if (!mounted) return null;
 
   return (
     <div
       className={cn(
-        'bottom-xl animate-in fade-in slide-in-from-bottom-4 fixed z-50 transition-all duration-300',
+        'animate-in fade-in slide-in-from-bottom-8 fixed bottom-4 z-100 transition-all duration-700',
         positionClasses[position]
       )}
     >
       <Button
         variant='outline'
-        size='lg'
+        size='icon'
         onClick={() => setIsLight(!isLight)}
-        className='gap-sm border-border bg-background/80 hover:bg-accent hover:text-accent-foreground rounded-full border shadow-lg backdrop-blur-md'
+        className='border-border bg-background/80 hover:bg-accent hover:text-accent-foreground size-9 rounded-full border shadow-lg backdrop-blur-md'
+        title={isLight ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
       >
-        {isLight ? (
-          <>
-            <Moon className='size-5' />
-            <span className='text-sm-semibold'>Night Mode</span>
-          </>
-        ) : (
-          <>
-            <Sun className='size-5' />
-            <span className='text-sm-semibold'>Day Mode</span>
-          </>
-        )}
+        {isLight ? <Moon className='size-4' /> : <Sun className='size-4' />}
       </Button>
     </div>
   );
