@@ -63,7 +63,7 @@ const Navbar = () => {
           href='/'
           className='text-foreground hover:text-primary flex items-center gap-2 transition-colors'
         >
-          <Logo />
+          <Logo className='size-6 lg:size-10.75' />
           <span className='text-xl leading-7 font-bold tracking-tight'>
             {BRAND_NAME}
           </span>
@@ -123,7 +123,7 @@ const Navbar = () => {
                     href='/'
                     className='text-foreground hover:text-primary flex items-center gap-2 transition-colors'
                   >
-                    <Logo />
+                    <Logo className='size-6 lg:size-10.75' />
                     <span className='text-xl leading-7 font-bold tracking-tight'>
                       {BRAND_NAME}
                     </span>

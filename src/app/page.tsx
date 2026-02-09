@@ -1,12 +1,12 @@
-import { DesignSystemTest } from '@/components/dev/DesignSystemTest';
-import { ThemeSwitcher } from '@/components/dev/ThemeSwitcher';
 import Navbar from '@/components/layouts/navbar';
+import Hero from '@/app/Home/partials/hero';
+import { ThemeSwitcher } from '@/components/dev/ThemeSwitcher';
 
 const Home = () => {
   return (
     <main className='bg-background min-h-screen'>
       <Navbar />
-      <DesignSystemTest />
+      <Hero />
       <ThemeSwitcher position='right' />
     </main>
   );

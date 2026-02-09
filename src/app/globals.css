@@ -112,6 +112,7 @@
   --spacing-status-icon-offset: 3.0625rem; /* 49px */
 
   --spacing-container-max: 78rem;
+  --spacing-container-max-hero: 75rem;
   --spacing-header: 5rem;
 
   /* Thematic Layers */
@@ -123,6 +124,13 @@
 
   /* Contact Section Dimensions */
   --spacing-contact-h-mobile: 24.125rem; /* 386px */
+
+  /* Animations */
+  --animate-spin-slow: spin 8s linear infinite;
+
+  /* Blurs */
+  --blur-hero: 20px;
+  --blur-hero-mobile: 7.83234px;
 }
 
 :root {
@@ -212,6 +220,10 @@ body {
 @layer components {
   .custom-container {
     @apply max-w-container-max mx-auto w-full ps-4 pe-4 md:ps-6 md:pe-6;
+  }
+
+  .hero-container {
+    @apply max-w-container-max-hero mx-auto w-full ps-4 pe-4 md:ps-6 md:pe-6;
   }
 
   .card {

@@ -1,13 +1,7 @@
-import { cn } from '@/lib/utils';
-
 type LogoProps = Readonly<{
   className?: string;
 }>;
 
-/**
- * Brand Logo component as an inline SVG.
- * Uses currentColor to allow styling via Tailwind text color classes.
- */
 export const Logo = ({ className }: LogoProps) => {
   return (
     <svg
@@ -16,7 +10,7 @@ export const Logo = ({ className }: LogoProps) => {
       viewBox='0 0 43 43'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      className={cn('size-6 lg:size-10.75', className)}
+      className={className}
       aria-hidden='true'
     >
       <path
