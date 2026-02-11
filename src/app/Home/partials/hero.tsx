@@ -9,7 +9,7 @@ import { Logo } from '@/components/ui/logo';
 const Hero = () => {
   return (
     <section className='bg-background relative flex h-screen min-h-213 w-full flex-col overflow-hidden md:min-h-236'>
-      {/* 1. Static Background */}
+      {/* Static Background */}
       <div className='pointer-events-none absolute inset-0 z-0 select-none'>
         {/* Mobile Background */}
         <div className='absolute inset-0 block md:hidden'>

@@ -10,24 +10,24 @@ export const socialMediaData: SocialMedia[] = [
     id: 'facebook',
     name: 'Facebook',
     href: 'https://facebook.com',
-    icon: '/icons/icon-facebook.svg',
+    icon: '/icons/icon-social-facebook.svg',
   },
   {
     id: 'instagram',
     name: 'Instagram',
     href: 'https://instagram.com',
-    icon: '/icons/icon-instagram.svg',
+    icon: '/icons/icon-social-instagram.svg',
   },
   {
     id: 'linkedin',
     name: 'LinkedIn',
     href: 'https://linkedin.com',
-    icon: '/icons/icon-linkedin.svg',
+    icon: '/icons/icon-social-linkedin.svg',
   },
   {
     id: 'tiktok',
     name: 'Tiktok',
     href: 'https://tiktok.com',
-    icon: '/icons/icon-tiktok.svg',
+    icon: '/icons/icon-social-tiktok.svg',
   },
 ];
