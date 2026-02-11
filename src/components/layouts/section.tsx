@@ -6,6 +6,7 @@ type SectionProps = Readonly<{
   subtitle?: string;
   id?: string;
   className?: string;
+  align?: 'center' | 'left';
 }>;
 
 /**
@@ -18,6 +19,7 @@ export const Section = ({
   subtitle,
   id,
   className,
+  align = 'center',
 }: SectionProps) => {
   const hasHeading = title !== undefined || subtitle !== undefined;
 
@@ -27,7 +29,7 @@ export const Section = ({
       id={id}
     >
       {hasHeading && (
-        <div className='text-center'>
+        <div className={cn(align === 'center' ? 'text-center' : 'text-start')}>
           {title && (
             <h2 className='display-sm-bold md:display-2xl-bold text-foreground'>
               {title}

@@ -6,8 +6,13 @@
 
 @theme {
   /* Text Sizes and Line Heights */
+  --text-display-4xl: 5rem;
+  --text-display-4xl--line-height: 5.375rem;
+  --text-display-4xl--letter-spacing: -0.02em;
+
   --text-display-3xl: 3.75rem;
   --text-display-3xl--line-height: 4.5rem;
+  --text-display-3xl--letter-spacing: -0.02em;
 
   --text-display-2xl: 3rem;
   --text-display-2xl--line-height: 3.75rem;
@@ -22,7 +27,8 @@
   --text-display-lg--letter-spacing: -0.02em;
 
   --text-display-md: 2rem;
-  --text-display-md--line-height: 2.5rem;
+  --text-display-md--line-height: 2.75rem;
+  --text-display-md--letter-spacing: -0.02em;
 
   --text-display-sm: 1.75rem;
   --text-display-sm--line-height: 2.375rem;
@@ -76,6 +82,9 @@
   --color-error: #ee1d52;
   --color-success: #10b981;
   --color-warning: #f59e0b;
+
+  --color-stats-purple-start: #5e2591;
+  --color-stats-purple-end: #a93fa8;
 
   --color-rating: #f3b64c;
 

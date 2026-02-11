@@ -2,6 +2,7 @@ import type { Config } from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
 
 const textSizes = {
+  'display-4xl': '--text-display-4xl',
   'display-3xl': '--text-display-3xl',
   'display-2xl': '--text-display-2xl',
   'display-xl': '--text-display-xl',
