@@ -1,6 +1,6 @@
 import Navbar from '@/components/layouts/navbar';
 import Hero from '@/app/Home/partials/hero';
-import Stats from '@/app/Home/partials/stats';
+import About from '@/app/Home/partials/about';
 import { ThemeSwitcher } from '@/components/dev/ThemeSwitcher';
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
     <main className='bg-background min-h-screen'>
       <Navbar />
       <Hero />
-      <Stats />
+      <About />
       <ThemeSwitcher position='right' />
     </main>
   );

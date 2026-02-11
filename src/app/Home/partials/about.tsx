@@ -1,21 +1,21 @@
 import Image from 'next/image';
 import { Section } from '@/components/layouts/section';
 import { Logo } from '@/components/ui/logo';
-import { STATS_DATA } from '@/constants/stats-data';
+import { STATS_DATA, StatItem } from '@/constants/stats-data';
 
-const Stats = () => {
+const About = () => {
   return (
     <Section
       title='Proven Numbers. Real Impact.'
       subtitle='From shipped products to years of experience'
-      id='stats'
+      id='about'
       align='left'
       className='md:space-y-7xl space-y-6'
     >
       <div className='md:gap-6xl flex flex-col gap-4'>
-        {STATS_DATA.map((item, index) => (
+        {STATS_DATA.map((item: StatItem, index: number) => (
           <div key={item.label} className='flex flex-col gap-6 md:gap-0'>
-            <div className='flex flex-row items-center justify-between gap-6'>
+            <div className='flex flex-row items-center justify-between gap-1'>
               {/* Stat Number with Icon */}
               <div className='flex w-30.25 shrink-0 items-center gap-2 md:w-53'>
                 <Logo variant='gradient' className='size-7 md:size-11' />
@@ -55,4 +55,4 @@ const Stats = () => {
   );
 };
 
-export default Stats;
+export default About;
