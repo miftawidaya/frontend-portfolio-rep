@@ -54,6 +54,6 @@ export const SKILLS_DATA: readonly SkillItem[] = [
 export const SKILL_QUOTE = {
   text: '"Programming is the art of telling another human what you want the computer to do."',
   author: '— Donald Knuth',
-  cta: 'Explore My Projects',
+  cta: 'Let’s Build Something',
   background: '/images/bg-skill.jpg',
 } as const;
