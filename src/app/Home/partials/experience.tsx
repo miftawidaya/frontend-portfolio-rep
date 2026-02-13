@@ -127,8 +127,7 @@ const ExperienceCard = ({
                 height={experience.logoHeight}
                 className={cn(
                   'md:h-12 md:w-32',
-                  experience.companyLogoLight &&
-                    'hidden in-[.light]:hidden dark:block'
+                  experience.companyLogoLight && 'in-[.light]:hidden'
                 )}
               />
               {/* Light mode logo variant (only if provided) */}
