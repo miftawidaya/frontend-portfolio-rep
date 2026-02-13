@@ -4,6 +4,7 @@ import About from '@/app/Home/partials/about';
 import Skills from '@/app/Home/partials/skills';
 import Comparison from '@/app/Home/partials/comparison';
 import Experience from '@/app/Home/partials/experience';
+import Testimonials from '@/app/Home/partials/testimonials';
 import { ThemeSwitcher } from '@/components/dev/ThemeSwitcher';
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
       <Skills />
       <Comparison />
       <Experience />
+      <Testimonials />
       <ThemeSwitcher position='right' />
     </main>
   );
