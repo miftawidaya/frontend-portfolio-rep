@@ -227,6 +227,11 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--spacing-header);
+
+  @media (width >= 48rem) {
+    scroll-padding-top: 1.5rem;
+  }
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
