@@ -63,15 +63,15 @@ const Navbar = () => {
           href='/'
           className='text-foreground hover:text-primary flex items-center gap-2 transition-colors'
         >
-          <Logo className='size-6 lg:size-10.75' />
+          <Logo className='size-6 md:size-10.75' />
           <span className='text-xl leading-7 font-bold tracking-tight'>
             {BRAND_NAME}
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className='hidden lg:block'>
-          <motion.ul className='flex items-center gap-6 px-6'>
+        <nav className='hidden md:block'>
+          <motion.ul className='gap-nav-gap flex items-center px-6'>
             {navigationData.map((item) => (
               <li key={item.id}>
                 <Link
@@ -88,7 +88,7 @@ const Navbar = () => {
         <Button
           asChild
           variant='secondary'
-          className='hidden md:min-w-41.75 lg:flex'
+          className='hidden md:flex md:min-w-41.75'
         >
           <Link href={CTA_HREF}>{CTA_LABEL}</Link>
         </Button>
@@ -100,7 +100,7 @@ const Navbar = () => {
               <motion.button
                 type='button'
                 aria-label='Open navigation menu'
-                className='text-foreground hover:text-primary flex size-8 cursor-pointer items-center justify-center transition-colors lg:hidden'
+                className='text-foreground hover:text-primary flex size-8 cursor-pointer items-center justify-center transition-colors md:hidden'
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -123,7 +123,7 @@ const Navbar = () => {
                     href='/'
                     className='text-foreground hover:text-primary flex items-center gap-2 transition-colors'
                   >
-                    <Logo className='size-6 lg:size-10.75' />
+                    <Logo className='size-6 md:size-10.75' />
                     <span className='text-xl leading-7 font-bold tracking-tight'>
                       {BRAND_NAME}
                     </span>
@@ -178,7 +178,7 @@ const Navbar = () => {
           <button
             type='button'
             aria-label='Open navigation menu'
-            className='cursor-pointer lg:hidden'
+            className='cursor-pointer md:hidden'
           >
             <Menu className='text-foreground size-6' />
           </button>

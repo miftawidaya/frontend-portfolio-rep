@@ -4,7 +4,7 @@ import ContactForm from '@/components/forms/contact-form';
 
 const Footer = () => {
   return (
-    <footer className='bg-background relative overflow-hidden'>
+    <footer id='contact' className='bg-background relative overflow-hidden'>
       <div className='bg-footer-glow pointer-events-none absolute inset-0 z-0 h-full w-full' />
 
       <div className='custom-container relative z-10 pt-10 pb-20 md:pt-20 md:pb-30'>

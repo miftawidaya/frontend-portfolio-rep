@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Raleway } from 'next/font/google';
 import './globals.css';
 import Footer from '@/components/layouts/footer';
+import Navbar from '@/components/layouts/navbar';
+import { ThemeSwitcher } from '@/components/dev';
 
 const raleway = Raleway({
   variable: '--font-raleway',
@@ -74,8 +76,10 @@ export default function RootLayout({
         className={`${raleway.variable} antialiased`}
         suppressHydrationWarning
       >
+        <Navbar />
         {children}
         <Footer />
+        <ThemeSwitcher position='right' />
       </body>
     </html>
   );
