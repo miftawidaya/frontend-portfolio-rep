@@ -59,7 +59,7 @@ const Skills = () => {
           />
 
           {/* Light mode specific overlay */}
-          <div className='bg-base-white/30 absolute inset-0 hidden in-[.light]:block dark:hidden' />
+          <div className='bg-background/30 absolute inset-0 hidden in-[.light]:block dark:hidden' />
 
           {/* Content Overlay */}
           <div className='relative z-10 flex h-full flex-col justify-between'>
@@ -76,8 +76,9 @@ const Skills = () => {
               variant='secondary'
               size='lg'
               className='text-sm-semibold md:text-md-semibold md:mx-auto md:w-full'
+              asChild
             >
-              {SKILL_QUOTE.cta}
+              <a href='#contact'>{SKILL_QUOTE.cta}</a>
             </Button>
           </div>
         </div>

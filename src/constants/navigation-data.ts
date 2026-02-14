@@ -16,9 +16,9 @@ export const navigationData: readonly NavigationItem[] = [
     href: '#about',
   },
   {
-    id: 'skill',
-    label: 'Skill',
-    href: '#skill',
+    id: 'skills',
+    label: 'Skills',
+    href: '#skills',
   },
   {
     id: 'projects',
