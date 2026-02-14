@@ -38,6 +38,7 @@ const About = () => {
                   alt={item.label.replace('\n', ' ')}
                   fill
                   className='border-border rounded-lg border object-cover md:rounded-2xl'
+                  sizes='(min-width: 768px) 120px, 80px'
                 />
               </div>
             </div>

@@ -46,6 +46,7 @@ const FormStatusDialog: React.FC<FormStatusDialogProps> = ({
               alt={variant}
               fill
               className='object-contain'
+              sizes='129px'
               priority
             />
           </div>

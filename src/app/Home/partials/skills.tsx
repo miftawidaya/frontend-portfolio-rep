@@ -32,6 +32,7 @@ const Skills = () => {
                     width={skill.iconWidth}
                     height={skill.iconHeight}
                     className='object-contain'
+                    style={{ width: 'auto', height: 'auto' }}
                   />
                 </div>
               </div>

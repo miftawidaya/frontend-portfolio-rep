@@ -19,7 +19,7 @@ const Hero = () => {
             fill
             priority
             className='object-cover object-top'
-            sizes='100vw'
+            sizes='(max-width: 768px) 100vw, 0vw'
           />
         </div>
         {/* Desktop Background */}
@@ -30,7 +30,7 @@ const Hero = () => {
             fill
             priority
             className='object-cover object-top'
-            sizes='100vw'
+            sizes='(min-width: 768px) 100vw, 0vw'
           />
         </div>
         {/* Mesh Grid Overlay */}
