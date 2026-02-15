@@ -136,7 +136,7 @@
   --spacing-contact-h-mobile: 24.125rem; /* 386px */
 
   /* Animations */
-  --animate-spin-slow: spin 8s linear infinite;
+  --animate-spin-slow: spin 12s linear infinite;
   --animate-accordion-down: accordion-down 200ms ease-out;
   --animate-accordion-up: accordion-up 200ms ease-out;
 
