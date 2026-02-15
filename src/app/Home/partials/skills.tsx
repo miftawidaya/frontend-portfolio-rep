@@ -15,39 +15,41 @@ const Skills = () => {
       subtitle='I create user-focused websites that look good, work well, and feel right.'
       id='skills'
     >
-      <div className='flex flex-col gap-4 md:flex-row md:items-stretch md:gap-4.25'>
+      <div className='flex flex-wrap items-center gap-4 md:gap-4.25'>
         {/* Tech Stack Grid */}
-        <div className='grid grid-cols-2 gap-4 md:flex-[674_1_0%] md:grid-cols-3 md:gap-4 md:gap-y-4.25'>
-          {SKILLS_DATA.map((skill: SkillItem) => (
-            <div
-              key={skill.id}
-              className='border-border bg-card flex h-43 flex-col items-center justify-center gap-2 rounded-2xl border p-2 text-center md:h-53.5'
-            >
-              {/* Tech Icon Wrapper */}
-              <div className='flex size-22.5 items-center justify-center p-3.75'>
-                <div className='relative flex items-center justify-center'>
-                  <Image
-                    src={skill.icon}
-                    alt={skill.name}
-                    width={skill.iconWidth}
-                    height={skill.iconHeight}
-                    className='object-contain'
-                    style={{ width: 'auto', height: 'auto' }}
-                  />
+        <div className='grow-7 basis-96'>
+          <div className='grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-4 md:gap-y-4.25'>
+            {SKILLS_DATA.map((skill: SkillItem) => (
+              <div
+                key={skill.id}
+                className='border-border bg-card flex h-43 flex-col items-center justify-center gap-2 rounded-2xl border p-2 text-center md:h-53.5'
+              >
+                {/* Tech Icon Wrapper */}
+                <div className='flex size-22.5 items-center justify-center'>
+                  <div className='relative flex items-center justify-center'>
+                    <Image
+                      src={skill.icon}
+                      alt={skill.name}
+                      width={skill.iconWidth}
+                      height={skill.iconHeight}
+                      className='object-contain'
+                      style={{ height: 'auto' }}
+                    />
+                  </div>
                 </div>
+                {/* Tech Name */}
+                <span className='text-md-regular md:text-lg-medium text-foreground'>
+                  {skill.name}
+                </span>
               </div>
-              {/* Tech Name */}
-              <span className='text-md-regular md:text-lg-medium text-foreground'>
-                {skill.name}
-              </span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Quote Card */}
         <div
           className={cn(
-            'card relative flex h-75.75 flex-col justify-between overflow-hidden md:h-111.25 md:flex-[509_1_0%]'
+            'card relative flex h-75.75 grow-3 basis-96 justify-between overflow-hidden md:h-111.25'
           )}
         >
           {/* Background Image */}
