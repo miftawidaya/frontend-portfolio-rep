@@ -1,20 +1,23 @@
 import Image from 'next/image';
-import { aspectRatio, motion } from 'motion/react';
+import { motion } from 'motion/react';
 import { Logo } from '@/components/ui/logo';
 import { HeroBadge } from './HeroBadge';
 
 export const HeroPortrait = () => {
   return (
-    <div className='-mt-[clamp(2.125rem, 8vh, 5.625rem)] relative z-10'>
-      {/* Main Portrait */}
+    <div
+      className='absolute top-14.25 left-1/2 z-10 h-114.25 -translate-x-1/2 md:top-27.25 md:ms-[27.5px] md:h-129.25'
+      style={{ width: 'clamp(22.56rem, 35.1vw, 27.38rem)' }}
+    >
+      {/* Profile Photo */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: 'easeOut' }}
-        className='relative isolate transform-gpu overflow-hidden rounded-t-full bg-white shadow-2xl'
+        className='absolute top-0 left-5.25 isolate transform-gpu overflow-hidden rounded-t-full bg-white shadow-2xl md:left-0'
         style={{
-          width: 'clamp(20rem, 31.83vw, 23.875rem)',
-          aspectRatio: '382/496',
+          width: 'clamp(19.95rem, 30.69vw, 23.94rem)',
+          aspectRatio: '383/497',
           WebkitMaskImage: '-webkit-radial-gradient(white, black)',
         }}
       >
@@ -30,18 +33,16 @@ export const HeroPortrait = () => {
 
       {/* Star Logo */}
       <div
-        className='absolute z-20'
+        className='absolute end-2 top-3.75 z-20 md:top-7.75'
         style={{
-          top: '6.25%',
-          left: '79.5%',
-          width: 'clamp(5rem, 10.5vw, 7.875rem)',
-          aspectRatio: '1/1',
+          width: 'clamp(5.06rem, 10.1vw, 7.88rem)',
+          height: 'clamp(5.06rem, 10.1vw, 7.88rem)',
         }}
       >
         <Logo className='size-full text-white drop-shadow-lg' />
       </div>
 
-      {/* Rotating Badge */}
+      {/* Badge */}
       <HeroBadge />
     </div>
   );

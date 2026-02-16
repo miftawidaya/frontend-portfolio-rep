@@ -7,20 +7,18 @@ export const HeroBadge = () => {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 0.8, duration: 0.5 }}
-      className='bg-base-white absolute z-20 flex items-center justify-center rounded-full shadow-xl'
+      className='bg-base-white absolute end-0 z-20 flex items-center justify-center rounded-full shadow-xl'
       style={{
-        width: 'clamp(6.06rem, 9.62vw, 7.5rem)',
+        width: 'clamp(6.06rem, 9.62vw, 7.5rem)', // 97px to 120px @1248
         height: 'clamp(6.06rem, 9.62vw, 7.5rem)',
-        top: '72.5%',
-        left: '72.5%',
-        transform: 'translate(25%, 25%)',
+        top: 'clamp(22.5rem, 31.73vw, 24.75rem)', // 360px to 396px @1248
       }}
     >
       {/* Spinning Text Image */}
       <div
         className='absolute flex items-center justify-center'
         style={{
-          width: 'clamp(4.13rem, 6.57vw, 5.13rem)',
+          width: 'clamp(4.13rem, 6.57vw, 5.13rem)', // 66px to 82px @1248
           height: 'clamp(4.13rem, 6.57vw, 5.13rem)',
         }}
       >
@@ -37,7 +35,7 @@ export const HeroBadge = () => {
       <div
         className='relative flex items-center justify-center'
         style={{
-          width: 'clamp(1.75rem, 3.21vw, 2.5rem)',
+          width: 'clamp(1.75rem, 3.21vw, 2.5rem)', // 28px to 40px @1248
           height: 'clamp(1.75rem, 3.21vw, 2.5rem)',
         }}
       >

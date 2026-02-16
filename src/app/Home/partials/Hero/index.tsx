@@ -11,17 +11,23 @@ const Hero = () => {
     <section className='bg-background relative flex h-screen min-h-213 w-full flex-col overflow-hidden md:min-h-236'>
       <HeroBackground />
 
-      {/* 2. Figure Group */}
-      <div className='absolute top-[calc(50%)] left-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center'>
-        <HeroWatermark />
-        <HeroPortrait />
+      {/* Main Stage */}
+      <div className='hero-container relative z-10 flex flex-1 flex-col items-center justify-center'>
+        <div className='h-container-stage-mobile md:h-container-stage relative flex w-full items-center justify-center'>
+          {/* Middle Composition */}
+          <div className='absolute inset-0'>
+            <HeroWatermark />
+            <HeroPortrait />
+          </div>
+
+          {/* Info Content */}
+          <div className='relative z-30 h-full w-full'>
+            <HeroContent />
+          </div>
+        </div>
       </div>
 
-      {/* 3. Text/Copy Layer*/}
-      <div className='hero-container pt-header relative z-30 flex h-full w-full flex-col justify-between pb-12 md:pb-24'>
-        <HeroContent />
-        <HeroScrollIndicator />
-      </div>
+      <HeroScrollIndicator />
     </section>
   );
 };

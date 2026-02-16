@@ -121,7 +121,9 @@
   --spacing-status-icon-offset: 3.0625rem; /* 49px */
 
   --spacing-container-max: 78rem;
-  --spacing-container-max-hero: 75rem;
+  --spacing-container-max-hero: 78rem;
+  --spacing-container-stage: 39.125rem; /* 626px */
+  --spacing-container-stage-mobile: 47rem; /* 752px */
   --spacing-header: 5rem;
   --spacing-nav-gap: clamp(1rem, 1.92vw, 1.5rem);
 
