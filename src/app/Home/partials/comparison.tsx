@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import { X } from 'lucide-react';
+import { motion } from 'motion/react';
 import { Section } from '@/components/layouts/section';
 import { Logo } from '@/components/ui/logo';
 import {
@@ -18,8 +21,12 @@ const Comparison = () => {
     >
       <div className='flex flex-col gap-5 md:flex-row md:gap-5'>
         {/* With Me */}
-        <div
+        <motion.div
           className={cn('card relative overflow-hidden border-none md:flex-1')}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           {/* Background Decorative Image */}
           <div className='absolute inset-0 opacity-80'>
@@ -42,10 +49,18 @@ const Comparison = () => {
             </h3>
 
             <div className='flex flex-col gap-2'>
-              {COMPARISON_ITEMS.map((item) => (
-                <div
+              {COMPARISON_ITEMS.map((item, index) => (
+                <motion.div
                   key={item}
                   className='bg-card/40 flex h-14 items-center gap-2 rounded-lg px-3 backdrop-blur-xl md:px-4'
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.4,
+                    ease: 'easeOut',
+                    delay: 0.2 + index * 0.08,
+                  }}
                 >
                   <Logo
                     variant='default'
@@ -54,24 +69,38 @@ const Comparison = () => {
                   <span className='text-sm-regular md:text-md-regular text-foreground'>
                     {item}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Other Card */}
-        <div className={cn('card md:flex-1')}>
+        <motion.div
+          className={cn('card md:flex-1')}
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+        >
           <div className='flex h-full flex-col gap-3 md:gap-4'>
             <h3 className='text-lg-semibold md:display-xs-semibold text-foreground'>
               Other
             </h3>
 
             <div className='flex flex-col gap-2'>
-              {COMPARISON_ITEMS.map((item) => (
-                <div
+              {COMPARISON_ITEMS.map((item, index) => (
+                <motion.div
                   key={item}
                   className='bg-muted flex h-14 items-center gap-2 rounded-lg px-3 md:px-4'
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.4,
+                    ease: 'easeOut',
+                    delay: 0.4 + index * 0.08,
+                  }}
                 >
                   <div className='flex size-6 items-center justify-center'>
                     <X className='text-error' />
@@ -79,11 +108,11 @@ const Comparison = () => {
                   <span className='text-sm-regular md:text-md-regular text-muted-foreground'>
                     {item}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </Section>
   );

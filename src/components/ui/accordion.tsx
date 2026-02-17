@@ -64,7 +64,7 @@ function AccordionContent({
     >
       <div
         className={cn(
-          'text-sm-regular md:text-md-regular text-muted-foreground ps-9 pb-4 md:ps-10 md:pb-8',
+          'text-sm-regular md:text-md-regular text-muted-foreground ps-9 pb-4 md:ps-10 md:pb-8 md:tracking-[-0.03em]',
           className
         )}
       >

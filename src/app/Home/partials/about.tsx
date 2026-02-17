@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { motion } from 'motion/react';
 import { Section } from '@/components/layouts/section';
 import { Logo } from '@/components/ui/logo';
 import { STATS_DATA, StatItem } from '@/constants/stats-data';
@@ -14,7 +17,18 @@ const About = () => {
     >
       <div className='md:gap-6xl flex flex-col gap-4'>
         {STATS_DATA.map((item: StatItem, index: number) => (
-          <div key={item.label} className='flex flex-col gap-6 md:gap-0'>
+          <motion.div
+            key={item.label}
+            className='flex flex-col gap-6 md:gap-0'
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{
+              duration: 0.6,
+              ease: 'easeOut',
+              delay: index * 0.15,
+            }}
+          >
             <div className='flex flex-row items-center justify-between gap-1'>
               {/* Stat Number with Icon */}
               <div className='flex w-30.25 shrink-0 items-center gap-2 md:w-53'>
@@ -49,7 +63,7 @@ const About = () => {
             )}
             {/* Desktop separator */}
             <div className='bg-border mt-6 hidden h-px w-full md:block' />
-          </div>
+          </motion.div>
         ))}
       </div>
     </Section>

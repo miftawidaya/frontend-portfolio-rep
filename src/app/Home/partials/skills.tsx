@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { motion } from 'motion/react';
 import { Section } from '@/components/layouts/section';
 import { Button } from '@/components/ui/button';
 import {
@@ -19,10 +22,18 @@ const Skills = () => {
         {/* Tech Stack Grid */}
         <div className='grow-7 basis-96'>
           <div className='grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-4 md:gap-y-4.25'>
-            {SKILLS_DATA.map((skill: SkillItem) => (
-              <div
+            {SKILLS_DATA.map((skill: SkillItem, index: number) => (
+              <motion.div
                 key={skill.id}
                 className='border-border bg-card flex h-43 flex-col items-center justify-center gap-2 rounded-2xl border p-2 text-center md:h-53.5'
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: 0.5,
+                  ease: 'easeOut',
+                  delay: index * 0.08,
+                }}
               >
                 {/* Tech Icon Wrapper */}
                 <div className='flex size-22.5 items-center justify-center'>
@@ -41,16 +52,20 @@ const Skills = () => {
                 <span className='text-md-regular md:text-lg-medium text-foreground'>
                   {skill.name}
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
         {/* Quote Card */}
-        <div
+        <motion.div
           className={cn(
             'card relative flex h-75.75 grow-3 basis-96 justify-between overflow-hidden md:h-111.25'
           )}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
         >
           {/* Background Image */}
           <Image
@@ -84,7 +99,7 @@ const Skills = () => {
               <a href='#contact'>{SKILL_QUOTE.cta}</a>
             </Button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </Section>
   );

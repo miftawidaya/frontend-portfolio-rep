@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'motion/react';
 import { cn } from '@/lib/utils';
 
 type SectionProps = Readonly<{
@@ -31,14 +34,26 @@ export const Section = ({
       {hasHeading && (
         <div className={cn(align === 'center' ? 'text-center' : 'text-start')}>
           {title && (
-            <h2 className='display-sm-bold md:display-2xl-bold text-foreground'>
+            <motion.h2
+              className='display-sm-bold md:display-2xl-bold text-foreground'
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+            >
               {title}
-            </h2>
+            </motion.h2>
           )}
           {subtitle && (
-            <p className='text-md-regular md:text-xl-regular text-muted-foreground mt-2 md:mt-4'>
+            <motion.p
+              className='text-md-regular md:text-xl-regular text-muted-foreground mt-2 md:mt-4'
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
+            >
               {subtitle}
-            </p>
+            </motion.p>
           )}
         </div>
       )}

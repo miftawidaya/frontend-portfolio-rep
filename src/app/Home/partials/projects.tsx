@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'motion/react';
 import { Section } from '@/components/layouts/section';
 import {
   PROJECTS_DATA,
@@ -12,8 +15,8 @@ const Projects = () => {
   return (
     <Section title={PROJECTS_TITLE} subtitle={PROJECTS_SUBTITLE} id='projects'>
       <div className='flex flex-col gap-5 md:flex-row'>
-        {PROJECTS_DATA.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+        {PROJECTS_DATA.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
         ))}
       </div>
     </Section>
@@ -22,11 +25,22 @@ const Projects = () => {
 
 type ProjectCardProps = Readonly<{
   project: ProjectItem;
+  index: number;
 }>;
 
-const ProjectCard = ({ project }: ProjectCardProps) => {
+const ProjectCard = ({ project, index }: ProjectCardProps) => {
   return (
-    <article className='flex flex-col gap-4 md:flex-1 md:gap-6'>
+    <motion.article
+      className='flex flex-col gap-4 md:flex-1 md:gap-6'
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.6,
+        ease: 'easeOut',
+        delay: index * 0.15,
+      }}
+    >
       {/* Portfolio image */}
       <div className='relative aspect-square overflow-hidden rounded-lg'>
         <Image
@@ -57,7 +71,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           <ArrowRight className='text-foreground size-6' />
         </a>
       </div>
-    </article>
+    </motion.article>
   );
 };
 
