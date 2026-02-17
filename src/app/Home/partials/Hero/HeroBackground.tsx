@@ -4,25 +4,25 @@ export const HeroBackground = () => {
   return (
     <div className='pointer-events-none absolute inset-0 z-0 select-none'>
       {/* Mobile Background */}
-      <div className='absolute inset-0 block md:hidden'>
+      <div className='absolute inset-0 transition-opacity duration-700 md:opacity-0'>
         <Image
           src='/images/bg-hero-mobile.jpg'
-          alt='Hero background'
+          alt=''
           fill
           priority
           className='object-cover object-top'
-          sizes='(max-width: 768px) 100vw, 0vw'
+          sizes='100vw'
         />
       </div>
       {/* Desktop Background */}
-      <div className='absolute inset-0 hidden md:block'>
+      <div className='absolute inset-0 opacity-0 transition-opacity duration-700 md:opacity-100'>
         <Image
           src='/images/bg-hero.jpg'
           alt='Hero background'
           fill
           priority
           className='object-cover object-top-right'
-          sizes='(min-width: 768px) 100vw, 0vw'
+          sizes='100vw'
         />
       </div>
       {/* Mesh Grid Overlay */}

@@ -8,12 +8,18 @@ import { HeroWatermark } from './HeroWatermark';
 
 const Hero = () => {
   return (
-    <section className='bg-background relative flex h-screen min-h-213 w-full flex-col overflow-hidden md:min-h-236'>
+    <section
+      className='bg-primary relative flex h-screen w-full flex-col overflow-hidden'
+      style={{ minHeight: 'clamp(53.25rem, calc(10.76vw + 50.61rem), 59rem)' }}
+    >
       <HeroBackground />
 
       {/* Main Stage */}
-      <div className='hero-container relative z-10 flex flex-1 flex-col items-center justify-center'>
-        <div className='h-container-stage-mobile md:h-container-stage relative flex w-full items-center justify-center'>
+      <div className='custom-container relative z-10 flex flex-1 flex-col items-center justify-start'>
+        <div
+          className='h-container-stage relative flex w-full items-center justify-center'
+          style={{ marginTop: 'clamp(3.125rem, 12.75vw, 9.9375rem)' }}
+        >
           {/* Middle Composition */}
           <div className='absolute inset-0'>
             <HeroWatermark />
@@ -27,7 +33,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <HeroScrollIndicator />
+      <HeroScrollIndicator href='#about' />
     </section>
   );
 };

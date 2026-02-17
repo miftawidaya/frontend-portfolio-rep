@@ -42,7 +42,7 @@ export const HeroContent = () => {
           <h3 className='text-foreground md:text-display-md text-lg font-bold tracking-[0] md:leading-10.5 md:tracking-[-0.04em]'>
             About me
           </h3>
-          <p className='text-neutral-25 md:text-md text-sm font-semibold md:tracking-[-0.03em]'>
+          <p className='text-foreground md:text-md text-sm font-semibold md:tracking-[-0.03em]'>
             Passionate about frontend development, I focus on crafting digital
             products.
           </p>
@@ -55,7 +55,7 @@ export const HeroContent = () => {
               href={social.href}
               target='_blank'
               rel='noopener noreferrer'
-              className='hover:border-primary border-foreground/20 flex size-10 items-center justify-center rounded-full border bg-black/60 p-2.5 backdrop-blur-md md:size-12 md:border-none'
+              className='hover:border-primary border-foreground/20 flex size-10 items-center justify-center rounded-full border p-2.5 backdrop-blur-xl hover:bg-black/40 md:size-12 md:border-none md:bg-black/60'
             >
               <Image
                 src={social.icon}
