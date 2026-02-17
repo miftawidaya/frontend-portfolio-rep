@@ -16,7 +16,7 @@ export const HeroContent = () => {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
+        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
         className='grow basis-148 text-start'
       >
         <h1 className='text-foreground hero-title md:tracking-[-0.02em]'>
@@ -31,7 +31,7 @@ export const HeroContent = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: 'easeOut', delay: 0.5 }}
+        transition={{ duration: 0.7, ease: 'easeOut', delay: 1.1 }}
         className='flex shrink-0 flex-col items-start text-start'
         style={{
           maxWidth: 'clamp(19.5625rem, 25.24vw, 19.6875rem)',

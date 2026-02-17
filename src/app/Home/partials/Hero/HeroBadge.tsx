@@ -6,7 +6,7 @@ export const HeroBadge = () => {
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 0.8, duration: 0.5 }}
+      transition={{ delay: 1.5, duration: 0.5 }}
       className='bg-base-white absolute end-0 z-20 flex items-center justify-center rounded-full shadow-xl'
       style={{
         width: 'clamp(6.06rem, 9.62vw, 7.5rem)', // 97px to 120px @1248

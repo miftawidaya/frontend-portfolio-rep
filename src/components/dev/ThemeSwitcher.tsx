@@ -32,7 +32,7 @@ export function ThemeSwitcher({ position = 'right' }: ThemeSwitcherProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setMounted(true);
-    }, 1000);
+    }, 3400);
     return () => clearTimeout(timer);
   }, []);
 

@@ -58,7 +58,7 @@ const Navbar = () => {
         <motion.div
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut', delay: 0.8 }}
+          transition={{ duration: 0.7, ease: 'easeOut', delay: 1.7 }}
         >
           <Link
             href='/'
@@ -82,7 +82,7 @@ const Navbar = () => {
                 transition={{
                   duration: 0.5,
                   ease: 'easeOut',
-                  delay: 1.0 + index * 0.12,
+                  delay: 2.1 + index * 0.15,
                 }}
               >
                 <Link
@@ -99,7 +99,7 @@ const Navbar = () => {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 1.7 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 2.8 }}
           className='hidden md:block'
         >
           <Button asChild variant='secondary' className='min-w-41.75'>
@@ -121,7 +121,7 @@ const Navbar = () => {
                 <motion.div
                   initial={{ rotate: -90, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
-                  transition={{ duration: 0.3, delay: 1.0 }}
+                  transition={{ duration: 0.3, delay: 1.8 }}
                 >
                   <Menu className='text-foreground size-6' />
                 </motion.div>
