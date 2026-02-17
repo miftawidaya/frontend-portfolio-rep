@@ -1,6 +1,11 @@
+import { motion } from 'motion/react';
+
 export const HeroWatermark = () => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.2, ease: 'easeOut' }}
       className='absolute left-1/2 z-0 -translate-x-1/2 py-5'
       style={{
         width: 'clamp(20.44rem, 66.91vw, 52.19rem)',
@@ -12,6 +17,6 @@ export const HeroWatermark = () => {
           PORTOFOLIO
         </h2>
       </div>
-    </div>
+    </motion.div>
   );
 };

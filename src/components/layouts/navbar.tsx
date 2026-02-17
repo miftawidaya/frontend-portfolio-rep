@@ -21,10 +21,6 @@ import {
   CTA_HREF,
 } from '@/constants/navigation-data';
 
-/**
- * Scroll-aware header with progressive blur effect.
- * Renders desktop nav inline; mobile nav via Sheet drawer.
- */
 const Navbar = () => {
   const [mounted, setMounted] = React.useState(false);
 
@@ -59,39 +55,57 @@ const Navbar = () => {
       />
 
       <div className='custom-container h-header flex items-center justify-between'>
-        <Link
-          href='/'
-          className='text-foreground hover:text-primary flex items-center gap-2 transition-colors'
+        <motion.div
+          initial={{ opacity: 0, y: -15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: 'easeOut', delay: 0.8 }}
         >
-          <Logo className='size-6 md:size-10.75' />
-          <span className='text-xl leading-7 font-bold tracking-tight'>
-            {BRAND_NAME}
-          </span>
-        </Link>
+          <Link
+            href='/'
+            className='text-foreground hover:text-primary flex items-center gap-2 transition-colors'
+          >
+            <Logo className='size-6 md:size-10.75' />
+            <span className='text-xl leading-7 font-bold tracking-tight'>
+              {BRAND_NAME}
+            </span>
+          </Link>
+        </motion.div>
 
         {/* Desktop Nav */}
         <nav className='hidden md:block'>
-          <motion.ul className='gap-nav-gap flex items-center px-6'>
-            {navigationData.map((item) => (
-              <li key={item.id}>
+          <ul className='gap-nav-gap flex items-center px-6'>
+            {navigationData.map((item, index) => (
+              <motion.li
+                key={item.id}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  ease: 'easeOut',
+                  delay: 1.0 + index * 0.12,
+                }}
+              >
                 <Link
                   href={item.href}
                   className='text-md text-foreground hover:text-primary block p-2 leading-7.5 font-medium tracking-tight transition-colors'
                 >
                   {item.label}
                 </Link>
-              </li>
+              </motion.li>
             ))}
-          </motion.ul>
+          </ul>
         </nav>
 
-        <Button
-          asChild
-          variant='secondary'
-          className='hidden md:flex md:min-w-41.75'
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 1.7 }}
+          className='hidden md:block'
         >
-          <Link href={CTA_HREF}>{CTA_LABEL}</Link>
-        </Button>
+          <Button asChild variant='secondary' className='min-w-41.75'>
+            <Link href={CTA_HREF}>{CTA_LABEL}</Link>
+          </Button>
+        </motion.div>
 
         {/* Mobile Nav */}
         {mounted ? (
@@ -107,7 +121,7 @@ const Navbar = () => {
                 <motion.div
                   initial={{ rotate: -90, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.3, delay: 1.0 }}
                 >
                   <Menu className='text-foreground size-6' />
                 </motion.div>

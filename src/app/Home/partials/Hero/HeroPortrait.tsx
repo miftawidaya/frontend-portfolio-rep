@@ -38,7 +38,10 @@ export const HeroPortrait = () => {
       </motion.div>
 
       {/* Star Logo */}
-      <div
+      <motion.div
+        initial={{ opacity: 0, scale: 0, rotate: -90 }}
+        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+        transition={{ delay: 0.6, duration: 0.6, ease: 'backOut' }}
         className='absolute end-2 z-20'
         style={{
           top: 'clamp(0.9375rem, calc(1.87vw + 0.48rem), 1.9375rem)',
@@ -47,7 +50,7 @@ export const HeroPortrait = () => {
         }}
       >
         <Logo className='size-full text-white drop-shadow-lg' />
-      </div>
+      </motion.div>
 
       {/* Badge */}
       <HeroBadge />

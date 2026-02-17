@@ -9,7 +9,7 @@ export const HeroScrollIndicator = ({ href }: HeroScrollIndicatorProps) => {
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1.5, duration: 1 }}
+      transition={{ delay: 1.6, duration: 0.8 }}
       className='absolute bottom-0 left-1/2 z-40 -translate-x-1/2'
     >
       <a

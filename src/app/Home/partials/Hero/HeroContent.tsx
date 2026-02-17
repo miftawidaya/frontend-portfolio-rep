@@ -14,9 +14,9 @@ export const HeroContent = () => {
     >
       {/* Title */}
       <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
         className='grow basis-148 text-start'
       >
         <h1 className='text-foreground hero-title md:tracking-[-0.02em]'>
@@ -29,9 +29,9 @@ export const HeroContent = () => {
 
       {/* About */}
       <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: 'easeOut', delay: 0.5 }}
         className='flex shrink-0 flex-col items-start text-start'
         style={{
           maxWidth: 'clamp(19.5625rem, 25.24vw, 19.6875rem)',
