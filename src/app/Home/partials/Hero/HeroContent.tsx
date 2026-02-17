@@ -5,7 +5,12 @@ import { socialMediaData } from '@/constants/social-media-data';
 
 export const HeroContent = () => {
   return (
-    <div className='md:h-container-stage flex h-full w-full flex-col items-start gap-y-3 pt-104.25 md:flex-row md:items-center md:justify-between md:gap-x-12 md:pt-9 md:pl-13'>
+    <div
+      className='md:h-container-stage flex h-full w-full flex-col items-start gap-y-3 pt-104.25 md:flex-row md:items-center md:justify-between md:gap-x-12 md:pt-9'
+      style={{
+        paddingInlineStart: 'clamp(0rem, calc(6.77vw - 2.03rem), 3.25rem)',
+      }}
+    >
       {/* Left Block: Heading Content */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
@@ -13,16 +18,10 @@ export const HeroContent = () => {
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
         className='flex flex-col items-start text-start'
       >
-        <h1
-          className='text-foreground leading-tight font-bold tracking-[-0.05em]'
-          style={{ fontSize: 'clamp(2.5rem, 6.41vw, 5rem)' }}
-        >
+        <h1 className='text-foreground hero-title md:tracking-[-0.02em]'>
           EDWIN
         </h1>
-        <h1
-          className='text-foreground leading-tight font-bold tracking-[-0.05em]'
-          style={{ fontSize: 'clamp(2.5rem, 6.41vw, 5rem)' }}
-        >
+        <h1 className='text-foreground hero-title -mt-1 md:mt-0 md:tracking-[-0.02em]'>
           ANDERSON
         </h1>
       </motion.div>
@@ -39,10 +38,10 @@ export const HeroContent = () => {
         }}
       >
         <div className='flex flex-col gap-1'>
-          <h3 className='text-foreground md:text-display-md text-lg leading-normal font-bold tracking-[-0.04em] md:leading-10.5'>
+          <h3 className='text-foreground md:text-display-md text-lg font-bold tracking-[0] md:leading-10.5 md:tracking-[-0.04em]'>
             About me
           </h3>
-          <p className='text-neutral-25 md:text-md text-sm leading-7 font-semibold tracking-[-0.03em] md:leading-7.5'>
+          <p className='text-neutral-25 md:text-md text-sm font-semibold md:tracking-[-0.03em]'>
             Passionate about frontend development, I focus on crafting digital
             products.
           </p>
