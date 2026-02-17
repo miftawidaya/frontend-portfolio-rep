@@ -6,17 +6,18 @@ import { socialMediaData } from '@/constants/social-media-data';
 export const HeroContent = () => {
   return (
     <div
-      className='md:h-container-stage flex h-full w-full flex-col items-start gap-y-3 pt-104.25 md:flex-row md:items-center md:justify-between md:gap-x-12 md:pt-9'
+      className='absolute inset-x-0 flex flex-wrap items-center justify-between gap-x-12 gap-y-3'
       style={{
+        top: 'clamp(14.625rem, calc(-22vw + 31.65rem), 26.0625rem)',
         paddingInlineStart: 'clamp(0rem, calc(6.77vw - 2.03rem), 3.25rem)',
       }}
     >
-      {/* Left Block: Heading Content */}
+      {/* Title */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-        className='flex flex-col items-start text-start'
+        className='grow basis-148 text-start'
       >
         <h1 className='text-foreground hero-title md:tracking-[-0.02em]'>
           EDWIN
@@ -26,12 +27,12 @@ export const HeroContent = () => {
         </h1>
       </motion.div>
 
-      {/* Right Block: About + Socials */}
+      {/* About */}
       <motion.div
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
-        className='flex flex-col items-start text-start'
+        className='flex shrink-0 flex-col items-start text-start'
         style={{
           maxWidth: 'clamp(19.5625rem, 25.24vw, 19.6875rem)',
           gap: 'clamp(1.5rem, 3.21vw, 2.5rem)',
