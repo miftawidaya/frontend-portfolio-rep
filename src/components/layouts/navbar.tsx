@@ -5,6 +5,7 @@ import { Menu, XIcon } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { Logo } from '@/components/ui/logo';
 import Link from 'next/link';
+import { trackClick } from '@/lib/analytics';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -63,6 +64,7 @@ const Navbar = () => {
           <Link
             href='/'
             className='text-foreground hover:text-primary flex items-center gap-2 transition-colors'
+            onClick={() => trackClick('navbar', 'logo')}
           >
             <Logo className='size-6 md:size-10.75' />
             <span className='text-xl leading-7 font-bold tracking-tight'>
@@ -88,6 +90,7 @@ const Navbar = () => {
                 <Link
                   href={item.href}
                   className='text-md text-foreground hover:text-primary block p-2 leading-7.5 font-medium tracking-tight transition-colors'
+                  onClick={() => trackClick('navbar', item.label)}
                 >
                   {item.label}
                 </Link>
@@ -103,7 +106,12 @@ const Navbar = () => {
           className='hidden md:block'
         >
           <Button asChild variant='secondary' className='min-w-41.75'>
-            <Link href={CTA_HREF}>{CTA_LABEL}</Link>
+            <Link
+              href={CTA_HREF}
+              onClick={() => trackClick('navbar', 'cta_get_in_touch')}
+            >
+              {CTA_LABEL}
+            </Link>
           </Button>
         </motion.div>
 
@@ -117,6 +125,7 @@ const Navbar = () => {
                 className='text-foreground hover:text-primary flex size-8 cursor-pointer items-center justify-center transition-colors md:hidden'
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
+                onClick={() => trackClick('navbar', 'mobile_menu_open')}
               >
                 <motion.div
                   initial={{ rotate: -90, opacity: 0 }}
@@ -171,6 +180,9 @@ const Navbar = () => {
                           <Link
                             href={item.href}
                             className='text-md text-foreground hover:text-primary block p-2 leading-7.5 font-medium tracking-tight transition-colors'
+                            onClick={() =>
+                              trackClick('navbar', `${item.label}_mobile`)
+                            }
                           >
                             {item.label}
                           </Link>
@@ -182,7 +194,14 @@ const Navbar = () => {
 
                 <SheetClose asChild>
                   <Button asChild variant='secondary' className='w-full'>
-                    <Link href={CTA_HREF}>{CTA_LABEL}</Link>
+                    <Link
+                      href={CTA_HREF}
+                      onClick={() =>
+                        trackClick('navbar', 'cta_get_in_touch_mobile')
+                      }
+                    >
+                      {CTA_LABEL}
+                    </Link>
                   </Button>
                 </SheetClose>
               </div>

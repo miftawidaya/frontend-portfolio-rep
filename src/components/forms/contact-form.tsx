@@ -21,6 +21,7 @@ import {
   contactSchema,
   type ContactFormValues,
 } from '@/lib/validations/contact';
+import { trackFormSubmit } from '@/lib/analytics';
 
 const ContactForm = () => {
   const [loading, setLoading] = React.useState(false);
@@ -61,9 +62,11 @@ const ContactForm = () => {
       );
       form.reset();
       setStatusVariant('success');
+      trackFormSubmit('contact', 'success');
     } catch (error) {
       console.error('EmailJS Error:', error);
       setStatusVariant('error');
+      trackFormSubmit('contact', 'error');
     } finally {
       setLoading(false);
       setShowStatus(true);

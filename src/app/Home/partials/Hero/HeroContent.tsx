@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { socialMediaData } from '@/constants/social-media-data';
+import { trackSocialClick } from '@/lib/analytics';
 
 export const HeroContent = () => {
   return (
@@ -56,6 +57,7 @@ export const HeroContent = () => {
               target='_blank'
               rel='noopener noreferrer'
               className='hover:border-primary border-foreground/20 flex size-10 items-center justify-center rounded-full border p-2.5 backdrop-blur-xl hover:bg-black/40 md:size-12 md:border-none md:bg-black/60'
+              onClick={() => trackSocialClick(social.name, social.href)}
             >
               <Image
                 src={social.icon}

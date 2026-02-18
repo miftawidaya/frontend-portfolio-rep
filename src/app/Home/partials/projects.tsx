@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { trackClick } from '@/lib/analytics';
 import { Section } from '@/components/layouts/section';
 import {
   PROJECTS_DATA,
@@ -67,6 +68,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           href={project.href}
           aria-label={`View ${project.title}`}
           className='border-border hover:bg-accent flex size-10 shrink-0 items-center justify-center rounded-full border transition-colors'
+          onClick={() => trackClick('projects', project.title)}
         >
           <ArrowRight className='text-foreground size-6' />
         </a>

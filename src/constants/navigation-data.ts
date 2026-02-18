@@ -1,3 +1,5 @@
+import { SITE_AUTHOR } from '@/constants/site-metadata';
+
 interface NavigationItem {
   readonly id: string;
   readonly label: string;
@@ -32,6 +34,6 @@ export const navigationData: readonly NavigationItem[] = [
   },
 ] as const;
 
-export const BRAND_NAME = 'Edwin';
+export const BRAND_NAME = SITE_AUTHOR.split(' ')[0];
 export const CTA_LABEL = 'Get in Touch';
 export const CTA_HREF = '#contact';

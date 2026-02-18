@@ -9,11 +9,21 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { FAQ_DATA, FAQ_SUBTITLE, FAQ_TITLE } from '@/constants/faq-data';
+import { trackFaqInteraction } from '@/lib/analytics';
 
 const FAQ = () => {
   return (
     <Section title={FAQ_TITLE} subtitle={FAQ_SUBTITLE} id='faq'>
-      <Accordion type='single' collapsible defaultValue='faq-technologies'>
+      <Accordion
+        type='single'
+        collapsible
+        defaultValue='faq-technologies'
+        onValueChange={(value) => {
+          if (value === '') return;
+          const match = FAQ_DATA.find((item) => item.id === value);
+          if (match) trackFaqInteraction(match.question);
+        }}
+      >
         {FAQ_DATA.map((item, index) => (
           <motion.div
             key={item.id}
