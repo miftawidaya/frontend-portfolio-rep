@@ -123,7 +123,7 @@
   --spacing-container-max: 78rem;
   --spacing-container-stage: clamp(39.125rem, calc(-14.74vw + 50.62rem), 47rem);
   --spacing-header: 5rem;
-  --spacing-nav-gap: clamp(1rem, 1.92vw, 1.5rem);
+  --spacing-nav-gap: clamp(0rem, calc(1.92vw - 1rem), 0.5rem);
 
   /* Thematic Layers */
   --footer-glow: linear-gradient(

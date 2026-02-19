@@ -24,6 +24,7 @@ import {
 
 const Navbar = () => {
   const [mounted, setMounted] = React.useState(false);
+  const [hoveredId, setHoveredId] = React.useState<string | null>(null);
 
   const { scrollY } = useScroll();
 
@@ -38,6 +39,28 @@ const Navbar = () => {
     [0, 100],
     ['blur(0px)', 'blur(10px)']
   );
+
+  /**
+   * Manually handles anchor link clicks to ensure scroll re-triggers
+   * even if the hash is already present in the URL.
+   */
+  const handleAnchorClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+    label: string
+  ) => {
+    trackClick('navbar', label);
+
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        // Update URL hash without standard jump
+        window.history.pushState(null, '', href);
+      }
+    }
+  };
 
   return (
     <motion.header
@@ -63,19 +86,28 @@ const Navbar = () => {
         >
           <Link
             href='/'
-            className='text-foreground hover:text-primary flex items-center gap-2 transition-colors'
+            className='text-foreground flex items-center gap-2 transition-colors'
             onClick={() => trackClick('navbar', 'logo')}
           >
-            <Logo className='size-6 md:size-10.75' />
-            <span className='text-xl leading-7 font-bold tracking-tight'>
-              {BRAND_NAME}
-            </span>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              className='flex items-center gap-2'
+            >
+              <Logo className='size-6 md:size-10.75' />
+              <span className='text-xl leading-7 font-bold tracking-tight'>
+                {BRAND_NAME}
+              </span>
+            </motion.div>
           </Link>
         </motion.div>
 
         {/* Desktop Nav */}
         <nav className='hidden md:block'>
-          <ul className='gap-nav-gap flex items-center px-6'>
+          <ul
+            className='gap-nav-gap flex items-center px-6'
+            onMouseLeave={() => setHoveredId(null)}
+          >
             {navigationData.map((item, index) => (
               <motion.li
                 key={item.id}
@@ -86,13 +118,31 @@ const Navbar = () => {
                   ease: 'easeOut',
                   delay: 2.1 + index * 0.15,
                 }}
+                className='relative'
               >
                 <Link
                   href={item.href}
-                  className='text-md text-foreground hover:text-primary block p-2 leading-7.5 font-medium tracking-tight transition-colors'
-                  onClick={() => trackClick('navbar', item.label)}
+                  className='text-md text-foreground relative block px-4 py-1.5 transition-colors'
+                  onClick={(e) => handleAnchorClick(e, item.href, item.label)}
+                  onMouseEnter={() => setHoveredId(item.id)}
                 >
-                  {item.label}
+                  <span className='relative z-10 leading-7.5 font-medium tracking-tight'>
+                    {item.label}
+                  </span>
+                  {hoveredId === item.id && (
+                    <motion.div
+                      layoutId='nav-pill'
+                      className='bg-foreground/10 absolute inset-0 rounded-md backdrop-blur-xl'
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{
+                        type: 'spring',
+                        bounce: 0.2,
+                        duration: 0.3,
+                      }}
+                    />
+                  )}
                 </Link>
               </motion.li>
             ))}
@@ -122,7 +172,7 @@ const Navbar = () => {
               <motion.button
                 type='button'
                 aria-label='Open navigation menu'
-                className='text-foreground hover:text-primary flex size-8 cursor-pointer items-center justify-center transition-colors md:hidden'
+                className='text-foreground flex size-8 cursor-pointer items-center justify-center transition-colors md:hidden'
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={() => trackClick('navbar', 'mobile_menu_open')}
@@ -132,7 +182,7 @@ const Navbar = () => {
                   animate={{ rotate: 0, opacity: 1 }}
                   transition={{ duration: 0.3, delay: 1.8 }}
                 >
-                  <Menu className='text-foreground size-6' />
+                  <Menu className='size-6' />
                 </motion.div>
               </motion.button>
             </SheetTrigger>
@@ -179,9 +229,13 @@ const Navbar = () => {
                         <SheetClose asChild>
                           <Link
                             href={item.href}
-                            className='text-md text-foreground hover:text-primary block p-2 leading-7.5 font-medium tracking-tight transition-colors'
-                            onClick={() =>
-                              trackClick('navbar', `${item.label}_mobile`)
+                            className='text-md text-foreground block px-4 py-2 leading-7.5 font-medium tracking-tight transition-colors'
+                            onClick={(e) =>
+                              handleAnchorClick(
+                                e,
+                                item.href,
+                                `${item.label}_mobile`
+                              )
                             }
                           >
                             {item.label}

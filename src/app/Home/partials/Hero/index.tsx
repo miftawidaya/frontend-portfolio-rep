@@ -9,6 +9,7 @@ import { HeroWatermark } from './HeroWatermark';
 const Hero = () => {
   return (
     <section
+      id='home'
       className='bg-primary relative flex h-screen w-full flex-col overflow-hidden'
       style={{ minHeight: 'clamp(53.25rem, calc(10.76vw + 50.61rem), 59rem)' }}
     >
