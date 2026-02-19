@@ -23,7 +23,7 @@ const Comparison = () => {
         {/* With Me */}
         <motion.div
           className={cn('card relative overflow-hidden border-none md:flex-1')}
-          initial={{ opacity: 0, x: -30 }}
+          initial={{ opacity: 0, x: -15 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -78,7 +78,7 @@ const Comparison = () => {
         {/* Other Card */}
         <motion.div
           className={cn('card md:flex-1')}
-          initial={{ opacity: 0, x: 30 }}
+          initial={{ opacity: 0, x: 15 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}

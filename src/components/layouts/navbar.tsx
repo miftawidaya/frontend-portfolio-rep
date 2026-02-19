@@ -3,6 +3,7 @@
 import React from 'react';
 import { Menu, XIcon } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'motion/react';
+import { useMedia } from 'react-use';
 import { Logo } from '@/components/ui/logo';
 import Link from 'next/link';
 import { trackClick } from '@/lib/analytics';
@@ -25,8 +26,16 @@ import {
 const Navbar = () => {
   const [mounted, setMounted] = React.useState(false);
   const [hoveredId, setHoveredId] = React.useState<string | null>(null);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const isDesktop = useMedia('(min-width: 768px)', false);
 
   const { scrollY } = useScroll();
+
+  React.useEffect(() => {
+    if (isDesktop) {
+      setIsOpen(false);
+    }
+  }, [isDesktop]);
 
   React.useEffect(() => {
     setMounted(true);
@@ -167,7 +176,7 @@ const Navbar = () => {
 
         {/* Mobile Nav */}
         {mounted ? (
-          <Sheet>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <motion.button
                 type='button'
@@ -226,21 +235,20 @@ const Navbar = () => {
                   <ul className='flex flex-col gap-2'>
                     {navigationData.map((item) => (
                       <li key={item.id}>
-                        <SheetClose asChild>
-                          <Link
-                            href={item.href}
-                            className='text-md text-foreground block px-4 py-2 leading-7.5 font-medium tracking-tight transition-colors'
-                            onClick={(e) =>
-                              handleAnchorClick(
-                                e,
-                                item.href,
-                                `${item.label}_mobile`
-                              )
-                            }
-                          >
-                            {item.label}
-                          </Link>
-                        </SheetClose>
+                        <Link
+                          href={item.href}
+                          className='text-md text-foreground block px-4 py-2 leading-7.5 font-medium tracking-tight transition-colors'
+                          onClick={(e) => {
+                            handleAnchorClick(
+                              e,
+                              item.href,
+                              `${item.label}_mobile`
+                            );
+                            setIsOpen(false);
+                          }}
+                        >
+                          {item.label}
+                        </Link>
                       </li>
                     ))}
                   </ul>

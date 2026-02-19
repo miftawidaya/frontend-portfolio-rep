@@ -29,20 +29,22 @@ const About = () => {
               delay: index * 0.15,
             }}
           >
-            <div className='flex flex-row items-center justify-between gap-1'>
-              {/* Stat Number with Icon */}
-              <div className='flex w-30.25 shrink-0 items-center gap-2 md:w-53'>
-                <Logo variant='gradient' className='size-7 md:size-11' />
-                <span className='display-xl-bold md:display-4xl-bold text-foreground'>
-                  {item.number}
-                </span>
-              </div>
+            <div className='flex flex-row items-center justify-between gap-1 md:items-center'>
+              <div className='flex flex-wrap items-center gap-x-4 gap-y-1 md:contents'>
+                {/* Stat Number with Icon */}
+                <div className='flex w-30.25 shrink-0 items-center gap-2 md:w-53'>
+                  <Logo variant='gradient' className='size-7 md:size-11' />
+                  <span className='display-xl-bold md:display-4xl-bold text-foreground'>
+                    {item.number}
+                  </span>
+                </div>
 
-              {/* Label */}
-              <div className='w-28 shrink-0 md:w-68'>
-                <p className='text-md-medium md:display-md-medium text-foreground whitespace-pre-line'>
-                  {item.label}
-                </p>
+                {/* Label */}
+                <div className='w-28 shrink-0 md:w-68'>
+                  <p className='text-md-medium md:display-md-medium text-foreground whitespace-pre-line'>
+                    {item.label}
+                  </p>
+                </div>
               </div>
 
               {/* Image */}

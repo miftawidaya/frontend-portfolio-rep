@@ -238,7 +238,7 @@ html {
 }
 
 body {
-  @apply bg-background text-foreground font-normal;
+  @apply bg-background text-foreground overflow-x-hidden font-normal;
   font-family: var(--font-raleway), ui-sans-serif, system-ui;
 }
 
